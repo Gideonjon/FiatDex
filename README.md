@@ -1,4 +1,4 @@
-# FiatDex Backend — Injective Africa Buildathon 2026
+# FiatDex  Backend — Injective Africa Buildathon 2026
 
 FiatDex is a mobile-first DEX explorer and fiat onramp built natively on the Injective blockchain, specifically designed for the African market (Nigeria, Ghana, Kenya, South Africa).
 
