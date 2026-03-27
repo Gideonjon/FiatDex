@@ -1,85 +1,93 @@
-# FiatDex Backend — Injective Africa Buildathon 2026
+# FiatDex
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![PyPI version](https://img.shields.io/pypi/v/FiatDex?style=for-the-badge&logo=pypi&logoColor=white) ![PyPI downloads](https://img.shields.io/pypi/dm/FiatDex?style=for-the-badge&logo=pypi&logoColor=white)
 
-FiatDex is a mobile-first DEX explorer and fiat onramp built natively on the Injective blockchain, specifically designed for the African market (Nigeria, Ghana, Kenya, South Africa).
+> A Python-based project for fiat currency exchange and management.
 
-## Features
+FiatDex is a comprehensive project designed to handle various aspects of fiat currency exchange, including alerts, authentication, funding, health checks, onramp services, portfolio management, selling, token management, and wallet management. The project utilizes a range of technologies, including Python, and follows a structured approach to maintain organization and readability.
 
-- **Token Discovery**: Live feed of Injective ecosystem tokens with 24h market data.
-- **Fiat Onramp**: Native integration with Transak and Kado for NGN, GHS, KES, and ZAR.
-- **Automated Swaps**: Instant INJ → Target Token execution after fiat purchase.
-- **Non-Custodial Auth**: Secure login via Keplr or MetaMask signatures.
-- **Portfolio Tracking**: Real-time balance and transaction history.
-- **Price Alerts**: Personalized push notifications via Expo.
+## 📋 Table of Contents
+- [Features](#-features)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Usage](#-usage)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
 
-## Tech Stack
+## ✨ Features
+- **Alert Management** - Handling alerts for various events and conditions
+- **Authentication** - Secure authentication mechanisms for user management
+- **Funding Management** - Managing funding sources and transactions
+- **Health Checks** - Performing health checks for system integrity
+- **Onramp Services** - Providing onramp services for easy currency exchange
+- **Portfolio Management** - Managing user portfolios and assets
+- **Selling and Token Management** - Handling selling and token-related transactions
+- **Wallet Management** - Secure wallet management for users
 
-- **Backend**: FastAPI (Python 3.11+)
-- **Database**: PostgreSQL with SQLAlchemy (Async)
-- **Cache**: Redis for price data and rate limiting
-- **Tasks**: Celery with Redis broker for background swaps and alerts
-- **Blockchain**: Injective SDK (`pyinjective`)
-
-## Getting Started
-
-### Prerequisites
-
-- Docker & Docker Compose
-- Python 3.11+
-- Redis (local or via Docker)
-- PostgreSQL (local or via Docker)
-
-### Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Ealfred1/FiatDex.git
-   cd FiatDex
-   ```
-
-2. **Set up environment variables**:
-   Copy `.env.example` to `.env` and fill in your keys.
-   ```bash
-   cp .env.example .env
-   ```
-
-3. **Spin up infrastructure**:
-   ```bash
-   docker-compose up -d
-   ```
-
-4. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Run migrations**:
-   ```bash
-   alembic upgrade head
-   ```
-
-6. **Start the API**:
-   ```bash
-   uvicorn app.main:app --reload
-   ```
-
-7. **Start Celery Worker**:
-   ```bash
-   celery -A app.tasks.celery_app worker --loglevel=info
-   ```
-
-## API Documentation
-
-Once the server is running, visit:
-- **Swagger UI**: [http://localhost:8000/docs](http://localhost:8000/docs)
-- **Redoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
-
-## Testing
-
-Run the test suite using `pytest`:
+## 📦 Installation
+To install FiatDex, you can use pip:
 ```bash
-python -m pytest
+pip install FiatDex
+```
+For development purposes, you can clone the repository and install the requirements:
+```bash
+git clone https://github.com/Gideonjon/FiatDex.git
+cd FiatDex
+pip install -r requirements.txt
 ```
 
-## License
+## 🚀 Quick Start
+To get started with FiatDex, you can run the main application:
+```bash
+python app/main.py
+```
+This will start the development server, and you can access the application through the specified URL.
 
-MIT
+## 📖 Usage
+FiatDex provides a range of APIs for various services, including authentication, funding, and portfolio management. You can use these APIs to integrate FiatDex into your application.
+
+## 🔗 Links
+- 📦 [PyPI Package](https://pypi.org/project/FiatDex)
+- 🐍 [GitHub Repository](https://github.com/Gideonjon/FiatDex)
+
+## 🛠️ Tech Stack
+| Technology | Purpose |
+|------------|---------|
+| Python | Primary language |
+| Alembic | Database migration tool |
+| Celery | Task queue |
+| Redis | In-memory data store |
+
+## 📁 Project Structure
+```
+📁 app/
+  📁 api/
+  📁 core/
+  📁 models/
+  📁 schemas/
+  📁 services/
+  📁 tasks/
+  📁 utils/
+📁 migrations/
+  📁 versions/
+📁 scripts/
+📁 tests/
+📄 .coverage
+📄 .env.example
+📄 .gitignore
+📄 alembic.ini
+  📄 __init__.py
+  📄 config.py
+  📄 dependencies.py
+  📄 main.py
+📄 docker-compose.yml
+📄 Dockerfile
+```
+
+## 🤝 Contributing
+To contribute to FiatDex, you can fork the repository and submit a pull request:
+1. Fork the repository: https://github.com/Gideonjon/FiatDex.git
+2. Create your feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add your feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a pull request
